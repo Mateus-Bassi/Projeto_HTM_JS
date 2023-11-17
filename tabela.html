@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalho 3</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="./projeto.js"></script>
+</head>
+<body>
+        <header>
+            <h1>Bem vindo!</h1>
+            <h3>Pizzaria do Ze</h3>
+            <nav>
+                <ul>
+                    <a href="index.html"><li>Home</li></a>               
+                    <a href="tabela.html"><li>Pedidos em andamento</li></a>
+                    <a href="#"><li>Cadastrar
+                        <ul>
+                            <form id="form">
+                                <label for="nome">Nome: </label>
+                                <input type="text" name="nome" id="nome">
+                                <br>
+                                <label for="email">E-mail: </label>
+                                <input type="text" name="email" id="email">
+                                <br>
+                                <label for="telefone">Telefone: </label>
+                                <input type="text" name="telefone" id="telefone">
+                                <br>
+                                <label for="endereco">Endereco: </label>
+                                <input type="text" name="endereco" id="endereco">
+                                <br>
+                                <label for="numero"> N.º da casa: </label>
+                                <input type="text" name="numero" id="numero">
+                                <br>
+                                <label for="pizza">Qual o sabor de pizza?</label>
+                                <select name="pizza" id="pizza">
+                                    <option value="margherita">Margherita</option>
+                                    <option value="calabresa">Calabresa</option>
+                                    <option value="frango">Frango com Catupiry</option>
+                                    <!-- Adicione mais opções conforme necessário -->
+                                </select>
+                                <br>
+
+                                <label for="coca">Alguma bebida?</label>
+                                <select name="coca" id="coca">
+                                    <option value="Coca-cola">Coca-Cola</option>
+                                    <option value="Coca-zero">Coca-Cola Zero</option>
+                                    <option value="Agua">Agua</option>
+                                    <option value="nada">Nada</option>
+                                    <!-- Adicione mais opções conforme necessário -->
+                                </select>
+                                <br>
+                                <button type="button" onclick="salvardados()">Salvar</button>
+                            </form>
+                            
+                        </ul>
+                        <!-- <a href="./tabela.html"></a> -->
+                    </li></a>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Telefone</th>
+                        <th>Numero casa</th>
+                        <th>Sabor de pizza</th>
+                        <th>Bebida</th>
+                        
+                    </tr>
+                </thead>
+            </table>
+        </main>
+</body>
+<script>
+    const tabela = document.getElementById('tabela');
+    var dados = JSON.parse(localStorage.getItem('dados')) || [];
+
+    function exibirDados(){
+        dados.forEach((elemento, chave) =>{
+            tabela.innerHTML += `
+            <tr>
+                <td>${chave}</td>
+                <td>${elemento.nome}</td>
+                <td>${elemento.email}</td>
+                <td>${elemento.telefone}</td>
+                <td>${elemento.endereco}</td>
+                <td>${elemento.numero}</td>
+                <td>
+                    <a href="#" onClick="remover(${chave})">Remover</a>    
+                </td>
+            </tr>
+            `;
+        })
+    }
+    function remover(chave){
+        dados.splice(chave,1);
+        localStorage.setItem('dados', JSON.stringify(dados));
+        window.location.href="./tabela.html";
+    }
+    exibirDados();
+</script>
+</html>

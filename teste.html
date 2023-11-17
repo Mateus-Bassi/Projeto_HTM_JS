@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>teste</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="./projeto.js"></script>
+    <style>
+        dialog {
+            width: 70%;
+            border: 0px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+        }
+        dialog ::backdrop {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <a href="#"><li>Home</li></a>
+            <a href="#" id="abrirModal"><li>Sobre</li></a>
+    <!-- <a href="#" id="abrirModal">Abrir Modal</a> -->
+        </ul>
+    </nav>
+    <dialog>
+        <h2>Título do Modal</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum nesciunt at minima, ipsam ullam molestiae repellendus commodi velit in autem deleniti delectus modi, quisquam nemo vel ipsa! Natus, explicabo voluptates.</p>
+        <a href="#" id="fecharModal">Fechar Modal</a>
+    </dialog>
+</body>
+</html>
