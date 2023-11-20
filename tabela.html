@@ -61,7 +61,7 @@
             </nav>
         </header>
         <main>
-            <table>
+            <table id="tabela">
                 <thead>
                     <tr>
                         <th>Nome</th>
@@ -72,6 +72,7 @@
                         
                     </tr>
                 </thead>
+            
             </table>
         </main>
 </body>
@@ -85,13 +86,10 @@
             <tr>
                 <td>${chave}</td>
                 <td>${elemento.nome}</td>
-                <td>${elemento.email}</td>
                 <td>${elemento.telefone}</td>
-                <td>${elemento.endereco}</td>
                 <td>${elemento.numero}</td>
-                <td>
-                    <a href="#" onClick="remover(${chave})">Remover</a>    
-                </td>
+                <td>${elemento.pizza}</td>
+                <td>${elemento.refri}</td>
             </tr>
             `;
         })
